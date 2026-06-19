@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Hair Salon - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fef9f7;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c1810;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar {
+            background: #2c1810;
+            color: #f0e0da;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .main-header {
+            background: white;
+            padding: 25px 0 15px;
+            border-bottom: 1px solid #f0e0da;
+        }
+
+        .header-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-image {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.02);
+        }
+
+        .nav {
+            background: #fff5f2;
+            border-bottom: 1px solid #f0e0da;
+            padding: 14px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5c3d33;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: #c28a7a;
+        }
+
+        .about-hero {
+            text-align: center;
+            padding: 60px 0 30px;
+            background: linear-gradient(135deg, #fff5f2 0%, #ffe8e2 100%);
+            border-radius: 30px;
+            margin: 30px 0;
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c1810;
+            margin-bottom: 15px;
+        }
+
+        .about-hero h1 span {
+            color: #c28a7a;
+        }
+
+        .about-hero p {
+            font-size: 1.1rem;
+            color: #7a5a50;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin: 50px 0;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #2c1810;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #5c3d33;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #e8d5ce, #d4b8ae);
+            border-radius: 30px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .mv-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(194,138,122,0.15);
+        }
+
+        .mv-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .mv-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #c28a7a;
+            margin-bottom: 15px;
+        }
+
+        .mv-card p {
+            color: #7a5a50;
+        }
+
+        .stats-section {
+            background: #2c1810;
+            border-radius: 30px;
+            padding: 50px 30px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #c28a7a;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: #f0e0da;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .team-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .team-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #2c1810;
+            margin-bottom: 15px;
+        }
+
+        .team-section > p {
+            color: #7a5a50;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-image {
+            background: linear-gradient(135deg, #e8d5ce, #d4b8ae);
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+
+        .team-card h4 {
+            font-size: 1.2rem;
+            color: #2c1810;
+            margin: 15px 0 5px;
+        }
+
+        .team-card p {
+            color: #c28a7a;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .team-bio {
+            padding: 0 15px 20px;
+            color: #7a5a50;
+            font-size: 0.85rem;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #c28a7a 0%, #a86e5e 100%);
+            border-radius: 30px;
+            padding: 50px 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            color: #fff5f2;
+            margin-bottom: 25px;
+        }
+
+        .btn-light {
+            background: white;
+            color: #c28a7a;
+            padding: 12px 35px;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-light:hover {
+            background: #2c1810;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: #2c1810;
+            color: #f0e0da;
+            padding: 50px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #c28a7a;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-section a {
+            color: #c28a7a;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(240,224,218,0.2);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 { font-size: 2rem; }
+            .nav-links { gap: 20px; }
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            .about-image { height: 250px; order: -1; }
+            .stats-grid { grid-template-columns: 1fr; gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .logo-image { max-width: 240px; }
+            .cta-banner h3 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">✨ EXPERT BRAIDING & STYLING ✨</div>
+
+<div class="main-header">
+    <div class="container">
+        <div class="header-inner">
+            <img src="IMAGES/1780035826751.png" alt="Elegant Hair Salon Logo" class="logo-image">
+        </div>
+    </div>
+</div>
+
+<div class="nav">
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="services.html">SERVICES</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="booknow.html">BOOK NOW</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </div>
+</div>
+
+<section class="about-hero">
+    <div class="container">
+        <h1>About <span>Elegant Hair Salon</span></h1>
+        <p>Where beauty meets elegance — a story of passion, precision, and professionalism</p>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>Elegant Hair Salon was founded in 2018 with a simple vision: to provide high-quality, affordable beauty services that make every client feel confident and beautiful. What started as a small local salon has grown into a trusted name in the Braamfontein community.</p>
+                <p>Our team of expert stylists is passionate about hair artistry, braiding techniques, and modern styling. We believe that everyone deserves to look and feel their best, which is why we offer personalized services tailored to each client's unique style and preferences.</p>
+                <p>From intricate braiding patterns to precision haircuts and stunning nail art, we bring creativity and professionalism to every appointment.</p>
+            </div>
+            <div class="about-image">💇‍♀️✨</div>
+        </div>
+
+        <div class="mission-vision">
+            <div class="mv-card">
+                <div class="mv-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>To deliver exceptional hair and beauty services that empower our clients, using high-quality techniques and products at affordable prices.</p>
+            </div>
+            <div class="mv-card">
+                <div class="mv-icon">👁️</div>
+                <h3>Our Vision</h3>
+                <p>To be the most trusted and beloved beauty destination in Johannesburg, known for excellence, creativity, and client satisfaction.</p>
+            </div>
+            <div class="mv-card">
+                <div class="mv-icon">💎</div>
+                <h3>Our Values</h3>
+                <p>Professionalism, creativity, integrity, and a commitment to making every client feel special and valued.</p>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item"><h4>2018</h4><p>Year Established</p></div>
+                <div class="stat-item"><h4>5000+</h4><p>Happy Clients</p></div>
+                <div class="stat-item"><h4>8+</h4><p>Expert Stylists</p></div>
+                <div class="stat-item"><h4>30+</h4><p>Services Offered</p></div>
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <p>Passionate professionals dedicated to your beauty journey</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">💇‍♀️</div>
+                    <h4>Njabulo Mabasa</h4>
+                    <p>Master Stylist & Founder</p>
+                    <div class="team-bio">Specializes in braiding techniques and creative styling with over 8 years of experience.</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">✂️</div>
+                    <h4>Thando Nkosi</h4>
+                    <p>Senior Hair Stylist</p>
+                    <div class="team-bio">Expert in precision cuts, fades, and modern men's and women's hairstyles.</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">💅</div>
+                    <h4>Lerato Dlamini</h4>
+                    <p>Nail Artist</p>
+                    <div class="team-bio">Creates stunning nail art designs including G.Nail, LUSH, and custom French tips.</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">💆</div>
+                    <h4>Amanda Mkhize</h4>
+                    <p>Hair Care Specialist</p>
+                    <div class="team-bio">Provides deep conditioning treatments and scalp care for healthy, beautiful hair.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-banner">
+            <h3>Ready to transform your look?</h3>
+            <p>Book an appointment with our expert stylists today</p>
+            <a href="booknow.html" class="btn-light">BOOK NOW →</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-section"><h4>VISIT US</h4><p>23 Jorrisen Street<br>Braamfontein, Johannesburg</p><p>📞 081 454 765</p><p>✉️ info@eleganthair.com</p></div>
+            <div class="footer-section"><h4>OUR SERVICES</h4><p>• Braiding Styles</p><p>• Cornrows & Locs</p><p>• Haircuts & Fades</p><p>• Nail Art & Design</p></div>
+            <div class="footer-section"><h4>HOURS</h4><p>Mon - Fri: 10am - 4pm</p><p>Saturday: 10am - 2pm</p><p>Sunday: Closed</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Elegant Hair Salon. All Rights Reserved.</p></div>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

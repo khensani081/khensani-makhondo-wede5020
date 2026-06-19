@@ -1,0 +1,6 @@
+# User-agent: * means these rules apply to all search engines (Google, Bing, etc.)
+User-agent: *
+Allow: /
+
+# Link directly to your official XML sitemap map file location
+Sitemap: https://khensani-makhondo-wede5020.netlify.app/sitemap.xml

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Hair Salon - Expert Braiding & Styling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fef9f7;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c1810;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #2c1810;
+            color: #f0e0da;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* Main Header */
+        .main-header {
+            background: white;
+            padding: 25px 0 15px;
+            border-bottom: 1px solid #f0e0da;
+        }
+
+        .header-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-image {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Navigation */
+        .nav {
+            background: #fff5f2;
+            border-bottom: 1px solid #f0e0da;
+            padding: 14px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5c3d33;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: #c28a7a;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+            background: linear-gradient(135deg, #fff5f2 0%, #ffe8e2 100%);
+            border-radius: 30px;
+            margin: 30px 0;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c1810;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #c28a7a;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #7a5a50;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #c28a7a;
+            color: white;
+            padding: 14px 40px;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #a86e5e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(194,138,122,0.3);
+        }
+
+        /* Welcome Section */
+        .welcome {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .welcome h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #2c1810;
+            margin-bottom: 20px;
+        }
+
+        .welcome p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #7a5a50;
+            font-size: 1.1rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 35px 25px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(194,138,122,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #c28a7a;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #7a5a50;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #2c1810 0%, #3e2a24 100%);
+            border-radius: 30px;
+            padding: 50px 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            color: #f0e0da;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .btn-light {
+            background: #c28a7a;
+            color: white;
+            padding: 12px 35px;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-light:hover {
+            background: #a86e5e;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c1810;
+            color: #f0e0da;
+            padding: 50px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #c28a7a;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-section a {
+            color: #c28a7a;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(240,224,218,0.2);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                gap: 20px;
+            }
+            .welcome h2 {
+                font-size: 1.6rem;
+            }
+            .services-grid {
+                gap: 20px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .logo-image {
+                max-width: 240px;
+            }
+            .cta-banner h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    ✨ EXPERT BRAIDING & STYLING ✨
+</div>
+
+<!-- Main Header with Logo -->
+<div class="main-header">
+    <div class="container">
+        <div class="header-inner">
+            <img src="IMAGES/1780035826751.png" alt="Elegant Hair Salon Logo" class="logo-image">
+        </div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="services.html">SERVICES</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="booknow.html">BOOK NOW</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>ELEGANT <span>HAIR SALON</span></h1>
+        <p>Expert Braiding & Styling — Where beauty meets elegance</p>
+        <a href="booknow.html" class="btn">BOOK APPOINTMENT →</a>
+    </div>
+</section>
+
+<!-- Welcome Section -->
+<section class="welcome">
+    <div class="container">
+        <h2>Welcome to Elegant Hair Salon</h2>
+        <p>Experience the ultimate hair transformation with our expert stylists. From classic cuts to modern braiding techniques, we bring your dream style to life. Walk out feeling confident, beautiful, and elegant.</p>
+    </div>
+</section>
+
+<!-- Services Preview -->
+<section class="container">
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">💇‍♀️</div>
+            <h3>Braiding Styles</h3>
+            <p>Knotless, Bohemian, Cornrows, Locs, SG Spell Wammer, and more. Expert braiding for every occasion.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">✂️</div>
+            <h3>Precision Cuts</h3>
+            <p>Modern haircuts, fades, waves, line ups, and styling for both men and women.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">💅</div>
+            <h3>Nail Art</h3>
+            <p>Premium nail designs including G.Nail Collection, LUSH, WOW, ROHST, and French Tips.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="container">
+    <div class="cta-banner">
+        <h3>Ready for a fresh new look?</h3>
+        <p>Book your appointment today and let our experts transform your style</p>
+        <a href="booknow.html" class="btn-light">BOOK NOW →</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>VISIT US</h4>
+                <p>23 Jorrisen Street<br>Braamfontein, Johannesburg</p>
+                <p>📞 081 454 765</p>
+                <p>✉️ info@eleganthair.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>OUR SERVICES</h4>
+                <p>• Braiding Styles</p>
+                <p>• Cornrows & Locs</p>
+                <p>• Haircuts & Fades</p>
+                <p>• Hair Treatments</p>
+                <p>• Nail Art & Design</p>
+            </div>
+            <div class="footer-section">
+                <h4>HOURS</h4>
+                <p>Mon - Fri: 10am - 4pm</p>
+                <p>Saturday: 10am - 2pm</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Elegant Hair Salon. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Hair Salon - Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fef9f7;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c1810;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar {
+            background: #2c1810;
+            color: #f0e0da;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .main-header {
+            background: white;
+            padding: 25px 0 15px;
+            border-bottom: 1px solid #f0e0da;
+        }
+
+        .header-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-image {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.02);
+        }
+
+        .nav {
+            background: #fff5f2;
+            border-bottom: 1px solid #f0e0da;
+            padding: 14px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5c3d33;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: #c28a7a;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 50px 0 30px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c1810;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: #7a5a50;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .category-section {
+            margin: 50px 0;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2c1810;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0e0da;
+            display: inline-block;
+            width: auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(194,138,122,0.2);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.03);
+        }
+
+        .gallery-caption {
+            padding: 18px;
+            text-align: center;
+            background: white;
+        }
+
+        .gallery-caption h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #c28a7a;
+            margin-bottom: 5px;
+        }
+
+        .gallery-caption p {
+            font-size: 0.85rem;
+            color: #7a5a50;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #2c1810 0%, #3e2a24 100%);
+            border-radius: 30px;
+            padding: 50px 30px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            color: #f0e0da;
+            margin-bottom: 25px;
+        }
+
+        .btn-light {
+            background: #c28a7a;
+            color: white;
+            padding: 12px 35px;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-light:hover {
+            background: #a86e5e;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: #2c1810;
+            color: #f0e0da;
+            padding: 50px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #c28a7a;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-section a {
+            color: #c28a7a;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(240,224,218,0.2);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 20px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .gallery-grid { grid-template-columns: 1fr; gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .logo-image { max-width: 240px; }
+            .cta-banner h3 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">✨ EXPERT BRAIDING & STYLING ✨</div>
+
+<div class="main-header">
+    <div class="container">
+        <div class="header-inner">
+            <img src="IMAGES/1780035826751.png" alt="Elegant Hair Salon Logo" class="logo-image">
+        </div>
+    </div>
+</div>
+
+<div class="nav">
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="services.html">SERVICES</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="booknow.html">BOOK NOW</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </div>
+</div>
+
+<main>
+    <main class="content-area">
+    <h2>Our Project Gallery</h2>
+    
+    <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Show All</button>
+        <button class="filter-btn" data-filter="tech">Tech Setup</button>
+        <button class="filter-btn" data-filter="consulting">Consulting</button>
+    </div>
+
+    <div class="gallery-grid">
+        <div class="gallery-item tech">
+            <img src="IMAGES/image4.jpg" alt="braids">
+            <div class="overlay">Expand View</div>
+        </div>
+        <div class="gallery-item consulting">
+            <img src="IMAGES/image5.jpg" alt="KNOTLESS DREADLOCKS WITH CURLS">
+            <div class="overlay">Expand View</div>
+        </div>
+    </div>
+
+    <div id="galleryModal" class="lightbox-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Expanded Content Target">
+        <div id="modalCaption"></div>
+    </div>
+</main>
+    <div class="container">
+        <div class="page-header">
+            <h1>Our Work Gallery</h1>
+            <p>Explore our latest braiding styles, nail art, and transformations</p>
+        </div>
+
+        <!-- Braiding Styles Gallery -->
+        <div class="category-section">
+            <div class="text-center"><div class="category-title">✨ Braiding Styles</div></div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="IMAGES/image4.jpg" alt="Knotless Braids" class="gallery-image" onerror="this.src='https://placehold.co/400x300/c28a7a/white?text=KNOTLESS+BRAIDS'">
+                    <div class="gallery-caption"><h3>Knotless Braids</h3><p>Medium knotless braids with elegant finish • R200</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMAGES/image5.jpg" alt="SG Spell Wammer Braids" class="gallery-image" onerror="this.src='https://placehold.co/400x300/c28a7a/white?text=SG+SPELL+WAMMER'">
+                    <div class="gallery-caption"><h3>SG Spell Wammer</h3><p>Statement braids with bold design • R350</p></div>
+                </div>
+                <div class="gallery-item">
+            
+
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #e8d5ce, #d4b8ae); display: flex; align-items: center; justify-content: center; font-size: 3rem;"></div>
+                    <div class="gallery-caption"><h3>Boho Braids</h3><p>Bohemian style with curly ends • R300</p></div>
+                </div>
+            </div
+        </div>
+
+        <!-- Nail Art Gallery -->
+        <div class="category-section">
+            <div class="text-center"><div class="category-title">💅 Nail Art & Design</div></div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="IMAGES/naildesign1.jpg" alt="G.Nail Collection" class="gallery-image" onerror="this.src='https://placehold.co/400x300/c28a7a/white?text=G.Nail+Nail+Art'">
+                    <div class="gallery-caption"><h3>G.Nail Collection</h3><p>LUSH, WOW, ROHST - Premium nail art designs • From R250</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMAGES/naildesign2.jpg" alt="Growth NOW Design" class="gallery-image" onerror="this.src='https://placehold.co/400x300/c28a7a/white?text=Growth+NOW'">
+                    <div class="gallery-caption"><h3>Growth NOW Series</h3><p>Modern nail art with elegant finish • R220</p></div>
+                </div>
+                <div class="gallery-item">
+                     <img src="IMAGES/naildesign3.jpg" alt="Growth NOW Design"class="gallery-image" style="background: linear-gradient(135deg, #f5e0d8, #e8ccc2); display: flex; align-items: center; justify-content: center; font-size: 3rem;">💅</div>
+                    <div class="gallery-caption"><h3>French Tips</h3><p>Classic French manicure with modern twist • R180</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Haircuts Gallery -->
+        <div class="category-section">
+            <div class="text-center"><div class="category-title">✂️ Haircuts & Styling</div></div>
+            <div class="gallery-grid">
+                <div class="gallery-item"
+                    
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #d4b8ae, #c8a898); display: flex; align-items: center; justify-content: center; font-size: 3rem;">✂️</div>
+                    <div class="gallery-caption"><h3>Fresh Fade</h3><p>Clean skin fade with lineup • R120</p></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #e0cec6, #d0b8ae); display: flex; align-items: center; justify-content: center; font-size: 3rem;">💈</div>
+                    <div class="gallery-caption"><h3>Textured Crop</h3><p>Modern textured haircut • R150</p></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #e8d5ce, #dcc4bc); display: flex; align-items: center; justify-content: center; font-size: 3rem;">💇</div>
+                    <div class="gallery-caption"><h3>Waves + Line Up</h3><p>360 waves with sharp lineup • R200</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner">
+            <h3>Inspired by our work?</h3>
+            <p>Book your appointment and let us create your next look</p>
+            <a href="booknow.html" class="btn-light">BOOK NOW →</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-section"><h4>VISIT US</h4><p>23 Jorrisen Street<br>Braamfontein, Johannesburg</p><p>📞 081 454 765</p><p>✉️ info@eleganthair.com</p></div>
+            <div class="footer-section"><h4>OUR SERVICES</h4><p>• Braiding Styles</p><p>• Cornrows & Locs</p><p>• Haircuts & Fades</p><p>• Nail Art & Design</p></div>
+            <div class="footer-section"><h4>HOURS</h4><p>Mon - Fri: 10am - 4pm</p><p>Saturday: 10am - 2pm</p><p>Sunday: Closed</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Elegant Hair Salon. All Rights Reserved.</p></div>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Hair Salon - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fef9f7;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c1810;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar {
+            background: #2c1810;
+            color: #f0e0da;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .main-header {
+            background: white;
+            padding: 25px 0 15px;
+            border-bottom: 1px solid #f0e0da;
+        }
+
+        .header-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-image {
+            max-width: 300px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.02);
+        }
+
+        .nav {
+            background: #fff5f2;
+            border-bottom: 1px solid #f0e0da;
+            padding: 14px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5c3d33;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: #c28a7a;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 50px 0 30px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c1810;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: #7a5a50;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin: 40px 0;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(194,138,122,0.15);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            color: #c28a7a;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p {
+            color: #5c3d33;
+            margin: 8px 0;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.02);
+        }
+
+        .hours-section {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        .hours-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2c1810;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .hours-table {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 20px;
+            border-bottom: 1px solid #f0e0da;
+        }
+
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+            color: #2c1810;
+        }
+
+        .time {
+            color: #c28a7a;
+            font-weight: 500;
+        }
+
+        .closed {
+            color: #a0867a;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #e8d5ce, #d4b8ae);
+            border-radius: 24px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            color: #5c3d33;
+        }
+
+        .footer {
+            background: #2c1810;
+            color: #f0e0da;
+            padding: 50px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #c28a7a;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-section a {
+            color: #c28a7a;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(240,224,218,0.2);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 20px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .logo-image { max-width: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">✨ EXPERT BRAIDING & STYLING ✨</div>
+
+<div class="main-header">
+    <div class="container">
+        <div class="header-inner">
+            <img src="IMAGES/1780035826751.png" alt="Elegant Hair Salon Logo" class="logo-image">
+        </div>
+    </div>
+</div>
+
+<div class="nav">
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="services.html">SERVICES</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="booknow.html">BOOK NOW</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </div>
+</div>
+
+<main>
+    <main class="content-area">
+    <h2>General Contact Inquiries</h2>
+
+    <section class="accordion-section">
+        <button class="accordion-header">What are standard business operation hours?</button>
+        <div class="accordion-panel">
+            <p>Our virtual project monitoring pipelines run strictly Monday through Friday, 08:00 to 17:00.</p>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <form id="contactForm" novalidate>
+            <div class="form-group">
+                <label for="contactName">Full Name:</label>
+                <input type="text" id="contactName" placeholder="Your Name">
+                <span class="error-message" id="contactNameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="contactEmail">Email Address:</label>
+                <input type="email" id="contactEmail" placeholder="name@domain.com">
+                <span class="error-message" id="contactEmailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="contactMessage">Detailed Message Block:</label>
+                <textarea id="contactMessage" rows="5" placeholder="Write your requirements..."></textarea>
+                <span class="error-message" id="contactMessageError"></span>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <div id="contactSuccess" class="success-message"></div>
+    </section>
+</main>
+    <div class="container">
+        <div class="page-header">
+            <h1>Get in Touch</h1>
+            <p>We'd love to hear from you — reach out anytime</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h3>Visit Us</h3>
+                <p>23 Jorrisen Street</p>
+                <p>Braamfontein, Johannesburg</p>
+                <p>South Africa</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h3>Call Us</h3>
+                <p>081 454 765</p>
+                <p>Available during business hours</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email Us</h3>
+                <p>info@eleganthair.com</p>
+                <p>bookings@eleganthair.com</p>
+            </div>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="https://wa.me/2781454765" class="whatsapp-btn" target="_blank">
+                📱 Chat with us on WhatsApp
+            </a>
+        </div>
+
+        <!-- Hours Section -->
+        <div class="hours-section">
+            <h2>⏰ Opening Hours</h2>
+            <div class="hours-table">
+                <div class="hours-row"><span class="day">Monday - Friday</span><span class="time">10:00 AM - 4:00 PM</span></div>
+                <div class="hours-row"><span class="day">Saturday</span><span class="time">10:00 AM - 2:00 PM</span></div>
+                <div class="hours-row"><span class="day">Sunday</span><span class="time closed">Closed</span></div>
+            </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="map-placeholder">
+            📍 23 Jorrisen Street, Braamfontein, Johannesburg
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>VISIT US</h4>
+                <p>23 Jorrisen Street<br>Braamfontein, Johannesburg</p>
+                <p>📞 081 454 765</p>
+                <p>✉️ info@eleganthair.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>OUR SERVICES</h4>
+                <p>• Braiding Styles</p>
+                <p>• Cornrows & Locs</p>
+                <p>• Haircuts & Fades</p>
+                <p>• Nail Art & Design</p>
+            </div>
+            <div class="footer-section">
+                <h4>HOURS</h4>
+                <p>Mon - Fri: 10am - 4pm</p>
+                <p>Saturday: 10am - 2pm</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Elegant Hair Salon. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
