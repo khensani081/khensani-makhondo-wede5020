@@ -1,0 +1,6 @@
+# User-agent: * means these rules apply to all search engines (Google, Bing, etc.)
+User-agent: *
+Allow: /
+
+# Link directly to your official XML sitemap map file location
+Sitemap: https://khensani081.github.io/khensani-makhondo-wede5020/sitemap.xml
